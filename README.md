@@ -1,73 +1,17 @@
-# React + TypeScript + Vite
+npm install
+npm run dev
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Le projet étant relativement simple, j'ai opté pour une structure qui suit cette logique : une App en root du projet, un dossier pages, un dossier composants.
 
-Currently, two official plugins are available:
+- pages : vues principales liées au routing
+- components : composants réutilisables
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Par manque de temps et afin de proposer un projet clair et à peu près terminé, je ne m'attaque pas au bonus Firestore. Dans le cas contraire, j'aurais ajouté un dossier services afin d'y mettre les fichiers nécessaires au fetching des données.
 
-## React Compiler
+Concernant les données, j'ai décidé de ne pas proposer d'optimisation pour la page des détails, les données étant toutes récupérées même si elles ne sont pas encore affichées. Deux raisons à cela :
+- A priori, ces données n'ont pas vocation à augmenter significativement, d'une manière qui justifierait de devoir implémenter une optimisation à ce niveau
+- Cela permet une navigation fluide entre les cartes
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+La page ChallengeDetails aurait pu être décomposée en plusieurs composants réutilisables afin de gagner en clarté et lisibilité. Afin de ne pas dépasser les trois heures préconisées, je laisse ainsi, mais un découpage "bouton de retour", "boutons de navigation" et "carte" m'aurait semblé pertinent.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+J'ai utilisé Material UI afin de me caler sur la librairie de votre stack technique. Si c'était ma première utilisation, j'ai cependant beaucoup utilisé Chakra UI qui sur bien des aspects est similaire.
