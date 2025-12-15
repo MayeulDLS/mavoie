@@ -1,4 +1,5 @@
 npm install
+
 npm run dev
 
 Le projet étant relativement simple, j'ai opté pour une structure qui suit cette logique : une App en root du projet, un dossier pages, un dossier composants.
