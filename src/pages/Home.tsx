@@ -7,7 +7,7 @@ export default function Home() {
     return (
         <Container>
             <Header />
-            <Toolbar />
+            <Toolbar sx={{ marginBottom: 4 }} />
             <Grid container spacing={2}>
                 {datas.challenges.map((challenge) => (
                     <Grid key={challenge.id} size={{ xs: 12, sm: 6, md: 4 }}>

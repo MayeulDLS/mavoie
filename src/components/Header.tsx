@@ -6,11 +6,14 @@ export default function Header() {
             position="fixed"
             color="transparent"
             elevation={3}
-            sx={{ backgroundColor: 'primary.main', color: 'black' }}
+            sx={{
+                backgroundColor: 'primary.main',
+                color: 'black',
+            }}
         >
             <Toolbar>
                 <Container>
-                    <Typography variant="h3" component="h1">
+                    <Typography variant="h3" component="h1" align="center">
                         Orientation
                     </Typography>
                 </Container>
